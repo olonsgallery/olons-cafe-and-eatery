@@ -1,0 +1,631 @@
+/* ========================================== */
+/* 0. MENGAMBIL FONT LOKAL MOGAN              */
+/* ========================================== */
+@font-face {
+  font-family: "Mogan";
+  /* Pastikan ekstensi file sesuai (.ttf atau .otf) */
+  src: url("Mogan.ttf") format("truetype");
+}
+
+/* ========================================== */
+/* 1. PALET WARNA OLONS CAFE (CSS VARIABLES)  */
+/* ========================================== */
+:root {
+  /* Warna Asli dari Logo */
+  --olons-green: #22412a;
+  --olons-cream: #efe7c9;
+  --bg-light: #fdfbf7; /* Putih Gading: Sangat terang tapi tidak menyilaukan */
+  --text-dark: #1f2e24; /* Hijau super gelap, hampir hitam untuk teks biasa */
+}
+
+/* ========================================== */
+/* 2. GAYA DASAR HALAMAN                      */
+/* ========================================== */
+body {
+  /* Kita pakai putih gading sebagai 60% warna dominan */
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  font-family: "Alata", sans-serif;
+  margin: 0; /* Menghilangkan jarak putih bawaan browser di pinggir layar */
+}
+
+/* Mengatur ukuran gambar logo agar pas di header */
+.logo-img {
+  height: 60px; /* Membatasi tinggi logo agar header tidak terlalu tebal */
+  width: auto; /* Memastikan lebarnya menyesuaikan secara proporsional agar gambar tidak gepeng */
+  display: block; /* Menghapus sedikit celah kosong bawaan gambar di HTML */
+}
+
+/* ========================================== */
+/* 3. HEADER UTAMA (10% Warna Aksen)          */
+/* ========================================== */
+header {
+  /* Header pakai hijau OLONS agar brand identity-nya langsung terasa */
+  background-color: var(--olons-green);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Mengatur wadah utama logo */
+header h1 {
+  margin: 0;
+  text-align: center; /* Meratakan ke tengah karena sekarang teksnya atas-bawah */
+  line-height: 1.1; /* Merapatkan jarak antara tulisan OLONS dan Cafe */
+}
+
+/* Mengatur tulisan "OLONS" */
+.logo-olons {
+  font-family: "Alata", sans-serif;
+  color: var(--olons-cream);
+  font-size: 1.2rem;
+  letter-spacing: 5px; /* Memberi jarak spasi antar huruf agar terlihat premium */
+}
+
+/* Mengatur tulisan "Cafe & Eatery" */
+.logo-cafe {
+  font-family: "Mogan", serif; /* MEMANGGIL FONT MOGAN LOKAL */
+  color: var(--olons-cream);
+  font-size: 2.8rem; /* Ukurannya jauh lebih besar dari tulisan OLONS */
+  font-weight: normal; /* Font retro biasanya lebih bagus tanpa cetak tebal ekstra */
+}
+
+/* ========================================== */
+/* 4. NAVIGASI                                */
+/* ========================================== */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+  align-items: center; /* BARIS BARU: Memastikan teks biasa dan tombol sejajar di tengah */
+}
+
+nav a {
+  text-decoration: none;
+  color: var(
+    --olons-cream
+  ); /* Teks menu juga krem agar kontras dengan header hijau */
+  font-weight: bold;
+  transition: 0.3s; /* Efek transisi halus saat disentuh */
+}
+
+nav a:hover {
+  color: #ffffff; /* Berubah jadi putih bersih saat disentuh */
+}
+
+/* --- GAYA KHUSUS TOMBOL "PESAN SEKARANG" --- */
+.btn-pesan {
+  background-color: var(
+    --olons-cream
+  ); /* Latar belakang tombol berwarna krem */
+  color: var(
+    --olons-green
+  ) !important; /* Memaksa warna teks menjadi hijau pekat */
+  padding: 10px 24px; /* Membuat area tombol lebih lebar dan nyaman diklik */
+  border-radius: 50px; /* Melengkungkan sudut hingga menjadi bentuk pil/oval sempurna */
+
+  /* Mencegah gaya hover bawaan nav a menimpa gaya tombol ini */
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Efek saat tombol disentuh (hover) */
+.btn-pesan:hover {
+  background-color: #ffffff; /* Latar berubah putih bersih agar terlihat menyala */
+  color: var(--olons-green) !important; /* Teks tetap hijau */
+  transform: scale(
+    1.05
+  ); /* EFEK BARU: Tombol membesar 5% agar terasa interaktif */
+}
+
+/* ========================================== */
+/* 5. AREA KARTU MENU (CSS GRID MAGIC)        */
+/* ========================================== */
+main {
+  padding: 40px; /* Sedikit memperbesar ruang napas di seluruh halaman */
+}
+
+/* Mengatur wadah utama #menu menjadi Grid */
+#menu {
+  margin-top: 20px;
+}
+
+/* Mengatur judul "Menu Favorit Kami" di dalam Grid */
+#menu h2 {
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(
+    --olons-green
+  ); /* Sekalian kita warnai hijau agar senada dengan merek */
+}
+
+/* Mengatur Wadah Grid Utama */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+/* MENGGANTIKAN #menu div: Mengatur Kotak Kartu Makanan */
+.menu-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+/* Efek saat kartu makanan disorot (hover) */
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Mengatur ukuran foto di dalam kartu makanan */
+.menu-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* ========================================== */
+/* 6. AREA TENTANG KAMI & LOKASI              */
+/* ========================================== */
+#tentang,
+#lokasi {
+  margin-bottom: 50px; /* Jarak lega sebelum masuk ke section berikutnya */
+  max-width: 800px; /* Membatasi lebar teks agar tidak terlalu panjang dan tetap nyaman dibaca */
+}
+
+#tentang h2,
+#lokasi h2 {
+  color: var(--olons-green);
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+#tentang p,
+#lokasi p {
+  line-height: 1.6; /* Jarak antar baris teks agar mata tidak cepat lelah */
+  font-size: 1.1rem;
+  color: var(--text-dark);
+}
+
+/* Mengatur bingkai luar tabel jadwal */
+.tabel-jadwal {
+  width: 100%;
+  max-width: 500px; /* Membatasi lebarnya agar tidak memanjang aneh di layar PC */
+  border-collapse: collapse; /* Menyatukan garis ganda antar sel agar mulus */
+  margin-bottom: 30px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden; /* Memotong sudut kaku agar ikut melengkung */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Bayangan lembut */
+}
+
+/* Mengatur ruang dan teks di dalam setiap sel tabel */
+.tabel-jadwal th,
+.tabel-jadwal td {
+  padding: 12px 18px; /* Ruang lega agar teks tidak menempel ke garis */
+  text-align: left; /* Rata kiri */
+  border-bottom: 1px solid #eee; /* Garis pembatas tipis berwarna abu-abu */
+  font-size: 1.05rem;
+}
+
+/* Mengatur khusus bagian Kepala Tabel (Judul) */
+.tabel-jadwal th {
+  background-color: var(--olons-green); /* Memakai warna hijau khas OLONS */
+  color: var(--olons-cream);
+  font-weight: bold;
+  letter-spacing: 1px; /* Sedikit renggang agar lebih elegan */
+}
+
+/* Trik Zebra-Cross: Memberi warna beda pada baris ganjil/genap (opsional) */
+.tabel-jadwal tbody tr:nth-child(even) {
+  background-color: #fcfcfc;
+}
+
+/* Menghilangkan garis paling bawah agar tidak ada garis ganda di ujung tabel */
+.tabel-jadwal tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Pembungkus peta untuk mengontrol ruang luar */
+.peta-wrapper {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden; /* Memastikan sudut peta ikut melengkung rapi */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Mengatur ukuran mesin IFRAME di dalamnya */
+.peta-wrapper iframe {
+  width: 100%; /* Memenuhi 100% lebar layar, baik di HP maupun Laptop */
+  height: 400px; /* Tinggi peta yang ideal untuk kenyamanan mata */
+  border: none; /* Menghilangkan garis tepi hitam bawaan browser */
+  display: block; /* Menghilangkan celah kosong di bawah elemen */
+}
+
+/* --- RESPONSIF: Peta sedikit memendek di layar HP agar hemat ruang --- */
+@media screen and (max-width: 768px) {
+  .peta-wrapper iframe {
+    height: 280px;
+  }
+}
+
+/* ========================================== */
+/* 7. AREA FOOTER (CATATAN KAKI)              */
+/* ========================================== */
+footer {
+  background-color: var(
+    --olons-green
+  ); /* Warna hijau logo untuk menutup halaman */
+  color: var(--olons-cream); /* Teks krem agar kontras */
+  text-align: center; /* Meratakan teks persis di tengah */
+  padding: 20px;
+  font-size: 0.9rem;
+
+  /* Bayangan tipis di bagian atas footer */
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Mengatur jarak antara teks copyright dan media sosial */
+.footer-content {
+  display: flex;
+  flex-direction: column; /* Mengatur isi footer agar bertumpuk ke bawah */
+  align-items: center;
+  gap: 15px; /* Memberi jarak antara teks dan tautan */
+}
+
+/* Membuang margin bawaan dari tag p agar lebih rapi */
+.footer-content p {
+  margin: 0;
+}
+
+/* Memanfaatkan Flexbox agar tautan sosmed berbaris ke samping */
+.social-links {
+  display: flex;
+  gap: 20px; /* Jarak antar tautan sosmed */
+}
+
+/* Mempercantik teks tautan sosmed */
+.social-links a {
+  color: var(--olons-cream);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Efek saat media sosial disentuh (hover) */
+.social-links a:hover {
+  color: #ffffff; /* Berubah jadi putih bersih */
+  transform: translateY(-3px); /* Efek melayang sedikit ke atas */
+}
+
+/* ========================================== */
+/* 8. GAYA UNTUK ASIDE (KOTAK PROMO)          */
+/* ========================================== */
+.promo-box {
+  background-color: #e6ede8; /* Warna hijau yang sangat pucat/lembut */
+  border-left: 5px solid var(--olons-green); /* Aksen garis tebal di sebelah kiri */
+  padding: 15px 20px; /* Jarak ruang di dalam kotak */
+  margin-top: 25px; /* Jarak antara paragraf utama dengan kotak promo */
+  border-radius: 0 8px 8px 0; /* Melengkungkan sudut kanan saja */
+}
+
+/* Merapikan judul di dalam aside */
+.promo-box h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: var(--olons-green);
+  font-size: 1.1rem;
+}
+
+/* Merapikan teks paragraf di dalam aside */
+.promo-box p {
+  margin: 0;
+  font-size: 0.95rem !important; /* Ukurannya dibuat sedikit lebih kecil dari teks utama */
+  color: var(--text-dark);
+}
+
+/* ========================================== */
+/* 9. DESAIN RESPONSIF (MEDIA QUERIES)        */
+/* ========================================== */
+
+/* Sensor ini HANYA aktif jika lebar layar 768px atau lebih kecil (Ukuran Tablet & HP) */
+@media screen and (max-width: 768px) {
+  /* 1. HEADER: Kita ubah dari berjejer ke samping menjadi bertumpuk ke atas-bawah */
+  header {
+    flex-direction: column; /* Mengubah arah susunan elemen menjadi vertikal */
+    gap: 15px; /* Memberi jarak antara logo dan menu navigasi */
+    padding: 15px; /* Sedikit mengecilkan ruang kosong header */
+  }
+
+  /* 2. NAVIGASI: Kita izinkan tautan menu turun ke baris baru jika layarnya sangat sempit */
+  nav ul {
+    flex-wrap: wrap; /* Membungkus elemen ke bawah jika ruang tidak cukup */
+    justify-content: center; /* Meratakan semua tautan persis di tengah */
+    gap: 25px;
+    padding: 15px;
+  }
+
+  /* 3. KONTEN UTAMA: Kurangi jarak kosong pinggir agar teks punya lebih banyak ruang di layar HP */
+  main {
+    padding: 20px 15px;
+  }
+
+  /* 4. KOTAK PROMO ASIDE: Kita pindahkan garis aksennya agar lebih pas untuk ukuran sempit */
+  .promo-box {
+    border-radius: 8px; /* Melengkungkan semua sudut kotak */
+    border-left: none; /* Menghilangkan garis tebal di kiri... */
+    border-top: 5px solid var(--olons-green); /* ...dan memindahkannya ke atas! */
+  }
+
+  /* 5. UKURAN TEKS: Sedikit mengecilkan judul agar tidak kepanjangan di HP */
+  .logo-cafe {
+    font-size: 2.2rem;
+  }
+}
+
+/* ========================================== */
+/* 10. AREA FORMULIR RESERVASI                 */
+/* ========================================== */
+#reservasi {
+  margin-bottom: 50px;
+  max-width: 800px; /* Menyeleraskan lebarnya dengan section Tentang Kami */
+}
+
+#reservasi h2 {
+  color: var(--olons-green);
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+/* Membungkus form di dalam kartu elegan */
+.form-reservasi {
+  background-color: var(--olons-cream);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+
+/* Mengatur grup kolom agar rapi bertumpuk ke bawah */
+.grup-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+/* Membagi tanggal dan waktu agar bersebelahan */
+.grup-input-sebaris {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.grup-input label {
+  font-weight: bold;
+  color: var(--olons-green);
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+/* Mengatur bentuk kotak isian (input, dropdown, teks panjang) */
+.grup-input input,
+.grup-input select,
+.grup-input textarea {
+  padding: 12px 15px;
+  border: 2px solid #ccc; /* Batas abu-abu standar */
+  border-radius: 8px;
+  font-family: inherit; /* Mengikuti font halaman (Alata) */
+  font-size: 1rem;
+  background-color: #ffffff;
+  transition: all 0.3s ease; /* Transisi halus untuk efek fokus */
+}
+
+/* EFEK FOKUS: Saat pengguna mengeklik ke dalam kotak */
+.grup-input input:focus,
+.grup-input select:focus,
+.grup-input textarea:focus {
+  outline: none; /* Membuang garis biru bawaan browser yang jelek */
+  border-color: var(--olons-green); /* Mengubah garis menjadi hijau OLONS */
+  box-shadow: 0 0 0 3px rgba(36, 65, 42, 0.2); /* Memberikan pendaran hijau tipis di luar kotak */
+}
+
+/* Tombol Kirim Form */
+.btn-submit {
+  background-color: var(--olons-green);
+  color: var(--olons-cream);
+  padding: 15px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer; /* Mengubah kursor jadi gambar tangan saat disorot */
+  transition:
+    transform 0.3s ease,
+    backgroud-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: var(--text-dark); /* Warnanya menggelap saat disentuh */
+  transform: translateY(-2px);
+}
+
+/* --- RESPONSIF UNTUK FORMULIR --- */
+@media screen and (max-width: 768px) {
+  .grup-input-sebaris {
+    grid-template-columns: 1fr; /* Tanggal dan Waktu bertumpuk di layar HP */
+  }
+}
+
+/* ========================================== */
+/* 11. AREA TANYA JAWAB (FAQ)                 */
+/* ========================================== */
+#faq {
+  margin-bottom: 60px;
+  max-width: 800px;
+}
+
+#faq h2 {
+  color: var(--olons-green);
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Jarak antar kotak pertanyaan */
+  margin-top: 25px;
+}
+
+/* Mengatur kotak luar pertanyaan */
+.faq-item {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden; /* Mencegah isinya luber keluar kotak */
+  transition: all 0.3s ease;
+}
+
+/* Efek saat pertanyaan disorot kursor */
+.faq-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  border-color: var(--olons-green);
+}
+
+/* Mengatur gaya teks judul pertanyaan (yang bisa diklik) */
+.faq-item summary {
+  padding: 18px 20px;
+  font-weight: bold;
+  color: var(--olons-green);
+  cursor: pointer;
+  font-size: 1.05rem;
+  background-color: var(--olons-cream);
+  list-style: none; /* Menghapus tanda panah bawaan di beberapa browser */
+}
+
+/* Menghapus tanda panah bawaan khusus untuk browser Safari/Chrome */
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Menambahkan tanda plus (+) buatan kita sendiri di sebelah kanan */
+.faq-item summary::after {
+  content: "+";
+  float: right; /* Mendorong tanda plus ke mentok kanan */
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+/* Mengubah tanda plus (+) menjadi silang (x) saat kotak dibuka */
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+/* Mengatur jarak dan teks jawaban */
+.faq-jawaban {
+  padding: 15px 20px;
+  border-top: 1px solid #eee; /* Garis pemisah antara judul dan jawaban */
+  color: var(--text-dark);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.faq-jawaban p {
+  margin: 0; /* Merapikan margin bawaan paragraf */
+}
+
+/* ========================================== */
+/* 12. GAYA JENDELA POP-UP (MODAL DIALOG)     */
+/* ========================================== */
+
+/* Mengatur Tombol Pemicu di dalam Aside */
+.btn-promo-klaim {
+  background-color: var(--olons-green);
+  color: var(--olons-cream);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin-top: 12px;
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.btn-promo-klaim:hover {
+  transform: scale(1.05);
+}
+
+/* Mengatur Kotak Dialog Utamanya */
+.modal {
+  border: none; /* Menghilangkan garis hitam bawaan browser */
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 400px;
+  background-color: var(--olons-cream);
+  color: var(--text-dark);
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* MANTRA AJAIB: Meredupkan Layar di Belakang Pop-up */
+.modal::backdrop {
+  background-color: rgba(
+    31,
+    46,
+    36,
+    0.7
+  ); /* Warna hijau OLONS dengan transparansi 70% */
+  -webkit-backdrop-filter: blur(
+    3px
+  ); /* Memberikan efek blur/buram pada background (modern) */
+  backdrop-filter: blur(3px);
+}
+
+/* Merapikan teks di dalam modal */
+.modal h2 {
+  color: var(--olons-green);
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+/* Tombol Tutup */
+.btn-tutup-modal {
+  background-color: transparent;
+  color: var(--olons-green);
+  border: 2px solid var(--olons-green);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3 ease;
+}
+
+.btn-tutup-modal:hover {
+  background-color: var(--olons-green);
+  color: var(--olons-cream);
+}
+
+/* Merapikan daftar syarat di dalam modal */
+.syarat-promo {
+  text-align: left;
+  margin-bottom: 20px;
+  line-height: 1.6; /* Tambahan sedikit agar teks tidak terlalu berdempetan */
+}

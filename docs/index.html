@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OLONS Café and Eatery</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alata&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>
+        <img
+          src="olons-cafe-and-eatery-typography-nobg.png"
+          alt="Logo OLONS Cafe & Eatery"
+          class="logo-img"
+        />
+      </h1>
+
+      <nav>
+        <ul>
+          <li><a href="#tentang">Tentang Kami</a></li>
+          <li><a href="#menu">Daftar Menu</a></li>
+          <li><a href="#reservasi">Reservasi</a></li>
+          <li><a href="#lokasi">Lokasi</a></li>
+          <li><a href="#" class="btn-pesan">Pesan Sekarang</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- MAIN: Inti dari seluruh konten website     -->
+    <!-- ========================================== -->
+    <main>
+      <!-- SECTION 1: Konsep & Perkenalan -->
+      <section id="tentang">
+        <h2>Your Daily Escape Spot</h2>
+        <p>
+          Selamat datang di OLONS. Kami hadir dengan konsep
+          <strong>Modern Nusantara Café Food</strong>, memadukan cita rasa
+          otentik Indonesia dengan gaya penyajian modern, cepat, dan nyaman bagi
+          mahasiswa dan pekerja kreatif.
+        </p>
+        <!-- ELEMEN BARU: Kotak Info Tambahan (Aside) -->
+        <aside class="promo-box">
+          <h3>Promo Spesial Mahasiswa!</h3>
+          <p>
+            Tunjukkan Kartu Tanda Mahasiswa (KTM) aktifmu dan dapatkan diskon
+            15% untuk semua minuman setiap hari Senin - Kamis.
+          </p>
+
+          <!-- Tombol Pemicu Dialog -->
+          <!-- Atribut onclick adalah jembatan mungil ke JavaScript -->
+          <button
+            onclick="document.getElementById('modal-promo').showModal()"
+            class="btn-promo-klaim"
+          >
+            Klaim Promo Ini
+          </button>
+        </aside>
+      </section>
+
+      <!-- SECTION 2: Katalog Menu -->
+      <section id="menu">
+        <h2>Menu Favorit Kami</h2>
+
+        <!-- Wadah utama untuk sistem Grid -->
+        <div class="menu-grid">
+          <!-- Kartu Makanan 1 -->
+          <div class="menu-card">
+            <img src="signature-coffee.webp" alt="Kopi Rempah" />
+            <h3>Kopi Rempah Nusantara</h3>
+            <p>
+              Signature drink kami. Minuman lokal premium dengan penyajian
+              modern yang siap menghangatkan suasana diskusimu.
+            </p>
+          </div>
+
+          <!-- Kartu Makanan 2 -->
+          <div class="menu-card">
+            <img src="rice-bowl.webp" alt="Ayam Bacem Bowl" />
+            <h3>Ayam Bacem Bowl</h3>
+            <p>
+              Adaptasi hidangan daerah ke format fast-casual. Pilihan tepat dan
+              praktis untuk makan siang yang mengenyangkan.
+            </p>
+          </div>
+
+          <div class="menu-card">
+            <img src="snacks.webp" alt="Tempe Fries" />
+            <h3>Tempe Fries</h3>
+            <p>
+              Menu ringan khas Indonesia untuk sharing. Camilan renyah yang
+              sangat cocok untuk menemani sesi produktifmu.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: Formulir -->
+      <section id="reservasi">
+        <h2>Reservasi Meja</h2>
+        <p>Amankan tempatmu untuk diskusi atau sekadar bersantai.</p>
+
+        <form action="#" method="post" class="form-reservasi">
+          <div class="grup-input">
+            <label for="nama">Nama Lengkap</label>
+            <input
+              type="text"
+              id="nama"
+              name="nama"
+              placeholder="Masukkan namamu..."
+              required
+            />
+          </div>
+
+          <div class="grup-input-sebaris">
+            <div class="grup-input">
+              <label for="tanggal">Tanggal</label>
+              <input type="date" id="tanggal" name="tanggal" required />
+            </div>
+            <div class="grup-input">
+              <label for="waktu">Waktu</label>
+              <input type="time" id="waktu" name="waktu" required />
+            </div>
+          </div>
+
+          <div class="grup-input">
+            <label for="jumlah">Jumlah Orang</label>
+            <select id="jumlah" name="jumlah">
+              <option value="1-2">1 - 2 Orang</option>
+              <option value="3-4">3 - 4 Orang</option>
+              <option value="5+">Lebih dari 4 Orang</option>
+            </select>
+          </div>
+
+          <div class="grup-input">
+            <label for="pesan">Catatan Khusus</label>
+            <textarea
+              id="pesan"
+              name="pesan"
+              rows="3"
+              placeholder="Misal: Minta meja dekat jendela atau area bebas asap rokok..."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Kirim Reservasi</button>
+        </form>
+      </section>
+
+      <!-- SECTION 5: Tanya Jawab (FAQ) -->
+      <section id="faq">
+        <h2>Pertanyaan Seputar OLONS</h2>
+        <p>
+          Temukan jawaban cepat untuk pertanyaan yang paling sering ditanyakan
+          pelanggan kami.
+        </p>
+
+        <div class="faq-container">
+          <!-- Pertanyaan 1 -->
+          <details class="faq-item">
+            <summary>
+              Apakah OLONS Café menyediakan Wi-Fi berkecepatan tinggi?
+            </summary>
+            <div class="faq-jawaban">
+              <p>
+                Tentu saja! Kami menyediakan Wi-Fi gratis hingga 100 Mbps khusus
+                untuk pelanggan. Password bisa kamu dapatkan di struk pembelian
+                atau dengan bertanya kepada kasir kami.
+              </p>
+            </div>
+          </details>
+
+          <!-- Pertanyaan 2 -->
+          <details class="faq-item">
+            <summary>
+              Apakah ada area bebas asap rokok (Non-Smoking Area)?
+            </summary>
+            <div class="faq-jawaban">
+              <p>
+                Ya, kami memiliki ruangan *indoor* ber-AC di lantai satu yang
+                100% bebas rokok, sangat cocok untuk fokus belajar atau bekerja.
+                Area *smoking* tersedia di balkon lantai dua dan taman belakang.
+              </p>
+            </div>
+          </details>
+
+          <!-- Pertanyaan 3 -->
+          <details class="faq-item">
+            <summary>
+              Bisakah saya memesan tempat untuk acara komunitas?
+            </summary>
+            <div class="faq-jawaban">
+              <p>
+                Sangat bisa. Kami memiliki paket khusus untuk acara diskusi
+                komunitas, bedah buku, atau kumpul organisasi. Silakan isi
+                formulir reservasi di atas atau hubungi WhatsApp kami untuk
+                penawaran spesial.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- SECTION 5: Informasi Tempat -->
+      <section id="lokasi">
+        <h2>Lokasi & Waktu Operasional</h2>
+        <p>
+          <strong>Alamat:</strong> Jl. Timoho, Yogyakarta (±500 meter dari
+          Kampus UIN Sunan Kalijaga)
+        </p>
+
+        <div class="peta-wrapper">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.955938837267!2d110.3888363!3d-7.7944983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5770b04a0e37%3A0x6b88301ecfce4f40!2sJl.%20Timoho%2C%20Kota%20Yogyakarta%2C%20Daerah%20Istimewa%20Yogyakarta!5e0!3m2!1sid!2sid!4v1718812345678!5m2!1sid!2sid"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+          </iframe>
+        </div>
+        <p><strong>Jam Operasional:</strong></p>
+        <table class="tabel-jadwal">
+          <thead>
+            <tr>
+              <th>Hari</th>
+              <th>Jam Operasional</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Senin - Jumat</td>
+              <td>09.00 - 23.00 WIB</td>
+            </tr>
+            <tr>
+              <td>Sabtu - Minggu</td>
+              <td>10.00 - 24.00 WIB</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- FOOTER: Area paling bawah website          -->
+    <!-- ========================================== -->
+    <footer>
+      <div class="footer-content">
+        <p>&copy; 2026 OLONS Café & Eatery. All rights reserved.</p>
+
+        <!-- Wadah untuk tautan media sosial -->
+        <div class="social-links">
+          <a href="https://www.instagram.com/olons.co/" target="_blank"
+            >Instagram</a
+          >
+          <a href="#">TikTok</a>
+          <a href="#">WhatsApp</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- JENDELA POP-UP (MODAL DIALOG)              -->
+    <!-- ========================================== -->
+    <dialog id="modal-promo" class="modal">
+      <div class="modal-content">
+        <h2>Voucer Diskon 15%</h2>
+        <p>
+          Simpan atau *screenshot* halaman ini dan tunjukkan kepada kasir kami
+          saat memesan.
+        </p>
+
+        <ul class="syarat-promo">
+          <li>Berlaku khusus *Dine-in* (Makan di tempat).</li>
+          <li>Satu KTM berlaku untuk maksimal 2 transaksi.</li>
+          <li>Tidak dapat digabungkan dengan promo lain.</li>
+        </ul>
+
+        <!-- Tombol Penutup Dialog -->
+        <button
+          onclick="document.getElementById('modal-promo').close()"
+          class="btn-tutup-modal"
+        >
+          Tutup Jendela
+        </button>
+      </div>
+    </dialog>
+  </body>
+</html>

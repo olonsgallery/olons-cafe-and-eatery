@@ -107,51 +107,93 @@
       <!-- SECTION 3: Formulir -->
       <section id="reservasi">
         <h2>Reservasi Meja</h2>
-        <p>Amankan tempatmu untuk diskusi atau sekadar bersantai.</p>
+        <p>
+          Silakan isi detail kehadiran Anda di bawah ini untuk mengamankan meja.
+        </p>
 
-        <form action="#" method="post" class="form-reservasi">
+        <form
+          id="formReservasi"
+          class="form-reservasi"
+          onsubmit="kirimKeWhatsApp(event)"
+        >
           <div class="grup-input">
-            <label for="nama">Nama Lengkap</label>
+            <label for="nama_pemesan">Nama Lengkap:</label>
             <input
               type="text"
-              id="nama"
+              id="nama_pemesan"
               name="nama"
-              placeholder="Masukkan nama kamu"
               required
+              placeholder="Masukkan nama Anda"
             />
           </div>
 
           <div class="grup-input-sebaris">
             <div class="grup-input">
-              <label for="tanggal">Tanggal</label>
-              <input type="date" id="tanggal" name="tanggal" required />
+              <label for="email_pemesan">Alamat Email:</label>
+              <input
+                type="email"
+                id="email_pemesan"
+                name="email"
+                required
+                placeholder="contoh@email.com"
+              />
             </div>
             <div class="grup-input">
-              <label for="waktu">Waktu</label>
-              <input type="time" id="waktu" name="waktu" required />
+              <label for="nomor_hp">Nomor WhatsApp:</label>
+              <input
+                type="tel"
+                id="nomor_hp"
+                name="telepon"
+                required
+                placeholder="Contoh: 081234567890"
+              />
+            </div>
+          </div>
+
+          <div class="grup-input-sebaris">
+            <div class="grup-input">
+              <label for="tanggal_reservasi">Tanggal Kedatangan:</label>
+              <input
+                type="date"
+                id="tanggal_reservasi"
+                name="tanggal"
+                required
+              />
+            </div>
+            <div class="grup-input">
+              <label for="jumlah_tamu">Jumlah Tamu (Orang):</label>
+              <input
+                type="number"
+                id="jumlah_tamu"
+                name="tamu"
+                min="1"
+                max="20"
+                required
+                value="2"
+              />
             </div>
           </div>
 
           <div class="grup-input">
-            <label for="jumlah">Jumlah Orang</label>
-            <select id="jumlah" name="jumlah">
-              <option value="1-2">1 - 2 Orang</option>
-              <option value="3-4">3 - 4 Orang</option>
-              <option value="5+">Lebih dari 4 Orang</option>
+            <label for="area_duduk">Pilihan Area:</label>
+            <select id="area_duduk" name="area">
+              <option value="indoor">Area Indoor (Ber-AC)</option>
+              <option value="outdoor">Area Outdoor (Taman)</option>
+              <option value="rooftop">Area Rooftop (Lantai Atas)</option>
             </select>
           </div>
 
           <div class="grup-input">
-            <label for="pesan">Catatan Khusus</label>
+            <label for="catatan_khusus">Catatan Khusus (Opsional):</label>
             <textarea
-              id="pesan"
-              name="pesan"
-              rows="3"
-              placeholder="Misal: Minta meja dekat jendela atau area bebas asap rokok..."
+              id="catatan_khusus"
+              name="catatan"
+              rows="4"
+              placeholder="Misal: Mohon siapkan kursi bayi..."
             ></textarea>
           </div>
 
-          <button type="submit" class="btn-submit">Kirim Reservasi</button>
+          <button type="submit" class="btn-submit">Konfirmasi Reservasi</button>
         </form>
       </section>
 
@@ -293,5 +335,7 @@
         </button>
       </div>
     </dialog>
+
+    <script src="script.js"></script>
   </body>
 </html>

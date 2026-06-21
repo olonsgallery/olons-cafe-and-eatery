@@ -393,6 +393,11 @@ footer {
   margin-bottom: 10px;
 }
 
+#reservasi p {
+  margin-bottom: 20px;
+  color: #7f8c8d;
+}
+
 /* Membungkus form di dalam kartu elegan */
 .form-reservasi {
   background-color: var(--olons-cream);

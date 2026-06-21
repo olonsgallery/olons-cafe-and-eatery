@@ -22,8 +22,14 @@ function kirimKeWhatsApp(event) {
 
 Mohon konfirmasinya ya. Terima kasih!`;
 
-  const nomorAdmin = "6282239895909";
+  const nomorAdmin = "628123456789";
   const urlWhatsApp = `https://wa.me/${nomorAdmin}?text=${encodeURIComponent(pesan)}`;
 
-  window.open(urlWhatsApp, "_blank");
+  // KODE DI BAWAH INI DIMATIKAN SEMENTARA DENGAN TANDA "//"
+  // window.open(urlWhatsApp, "_blank");
+
+  // SEBAGAI GANTINYA, KITA TAMPILKAN POP-UP DEMO
+  alert(
+    `Mode Demo: Simulasi reservasi atas nama ${nama} berhasil!\n\n(Data tidak dikirim ke mana pun karena kafe belum beroperasi).`,
+  );
 }
